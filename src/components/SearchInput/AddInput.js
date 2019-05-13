@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-export default class Input extends Component {
+ class AddInput extends Component {
   constructor(props) {
      super(props);
 
@@ -21,7 +21,7 @@ export default class Input extends Component {
   render() {
     return (
       <div>
-        <div className="input-group">
+        <div className="input-group mt-4 delay-1s">
           <input
             type="text"
             className="form-control"
@@ -42,6 +42,8 @@ export default class Input extends Component {
       </div>
     );
   }
-}
+};
+
+export default AddInput;
 
 

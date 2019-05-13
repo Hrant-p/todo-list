@@ -7,14 +7,26 @@ import PropTypes from 'prop-types'
   }
 
   render() {
+      
+    const { todoItems } = this.props;
+
+      let items = todoItems
+        ? todoItems.map(item => (
+            <li 
+                className="list-group-item animated slideInDown"
+                key={item.id}>
+              {item.label}
+            </li>
+          ))
+        : null;
+      
+      
+
     return (
-          <ul className="list-group">
-            <li className="list-group-item active">ToDo list</li>
-            <li className="list-group-item">Dapibus ac facilisis in</li>
-            <li className="list-group-item">Morbi leo risus</li>
-            <li className="list-group-item">Porta ac consectetur ac</li>
-            <li className="list-group-item">Vestibulum at eros</li>
-          </ul>
+      <ul className="list-group ">
+        <li className="list-group-item active text-center">TODO LIST</li>
+       {items}
+      </ul>
     );
   }
 }

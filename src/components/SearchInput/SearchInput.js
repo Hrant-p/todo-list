@@ -2,18 +2,36 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class SearchInput extends Component {
-  static propTypes = {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       query: ''
+    };
+  };
+  
+  
+  
+   static propTypes = {
     // prop: PropTypes
+  };
+
+  onClick() {
+
+  };
+
+  onSearchInput() {
+
   }
 
   render() {
     return (
-      <div>
+      <div className="animated bounceIn">
         <div className="input-group">
           <input
             type="text"
             className="form-control"
-            aria-label="Text input with segmented dropdown button"
+            placeholder="Type to seach"
           />
           <div className="input-group-append">
             <div>
