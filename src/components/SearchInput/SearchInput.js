@@ -38,7 +38,7 @@ export default class SearchInput extends Component {
               <button
                 type="button"
                 className="btn btn-danger"
-                onClick={this.onClick}
+                onClick={this.onClick.bind(this)}
               >
                 {this.props.label}
               </button>

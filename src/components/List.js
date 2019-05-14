@@ -1,31 +1,31 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { isEmpty } from '../isEmpty';
 
  class List extends Component {
   static propTypes = {
-    // prop: PropTypes
-  }
+    todoItems: PropTypes.array.isRequired
+  };
+
+  
 
   render() {
       
     const { todoItems } = this.props;
-
-      let items = todoItems
-        ? todoItems.map(item => (
-            <li 
-                className="list-group-item animated slideInDown"
-                key={item.id}>
+    const items = todoItems.map(item => (
+            <li
+              className="list-group-item animated slideInDown"
+              key={item.id}
+            >
               {item.label}
             </li>
           ))
-        : null;
-      
       
 
     return (
       <ul className="list-group ">
         <li className="list-group-item active text-center">TODO LIST</li>
-       {items}
+        {isEmpty(todoItems) ? null : items}
       </ul>
     );
   }

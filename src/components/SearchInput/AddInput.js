@@ -1,16 +1,31 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addItem } from '../../action/action'
 
  class AddInput extends Component {
   constructor(props) {
      super(props);
 
-     this.state = {};
-     this.onClick = this.onClick.bind(this);
+     this.state = {
+         text: ''
+     };
+     this.onAddItems = this.onAddItems.bind(this);
+     this.onChange = this.onChange.bind(this);
    }
 
-   onClick() {
-     console.log("onClick");
+   onAddItems() {
+     const { text } = this.state;
+    
+    this.props.addItem(text);
+
+     this.setState({text: ''})
+   };
+
+   onChange (e) {
+        this.setState({
+            text: e.target.value
+        })
    }
   
   
@@ -24,15 +39,18 @@ import PropTypes from 'prop-types';
         <div className="input-group mt-4 delay-1s">
           <input
             type="text"
+            name="text"
+            placeholder="Type the ToDo info"
             className="form-control"
-            aria-label="Text input with segmented dropdown button"
+            onChange={this.onChange}
+            value={this.state.text}
           />
           <div className="input-group-append">
             <div>
               <button
                 type="button"
                 className="btn btn-outline-secondary"
-                onClick={this.onClick}
+                onClick={this.onAddItems}
               >
                 {this.props.label}
               </button>
@@ -44,6 +62,10 @@ import PropTypes from 'prop-types';
   }
 };
 
-export default AddInput;
+const mapDispatchToProps = state => ({
+    listItems: state.listItems
+})
+
+export default connect(mapDispatchToProps, { addItem })(AddInput);
 
 
