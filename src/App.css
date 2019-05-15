@@ -17,3 +17,15 @@ body{
     flex-direction: column;
     margin-top: 50px;
 }
+.col-sm-8{
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.col-sm-8:hover {
+    box-shadow: 1px 1px 9px 1px;
+}
+
+.marked{
+    text-decoration-line: line-through; 
+}

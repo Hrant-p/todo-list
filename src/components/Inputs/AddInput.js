@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addItem } from '../../action/action'
+import { isEmpty } from '../../helpers';
 
  class AddInput extends Component {
   constructor(props) {
@@ -17,21 +18,22 @@ import { addItem } from '../../action/action'
    onAddItems() {
      const { text } = this.state;
     
-    this.props.addItem(text);
-
-     this.setState({text: ''})
+    if (!isEmpty(text)){
+        this.props.addItem(text);
+        this.setState({text: ''})
+    } else {
+        alert('There is no text')
+    };
    };
 
    onChange (e) {
-        this.setState({
-            text: e.target.value
-        })
-   }
+        this.setState({ text: e.target.value})
+   };
   
   
     static propTypes = {
-    label: PropTypes.string
-  }
+    addItem: PropTypes.func.isRequired
+  };
 
   render() {
     return (
@@ -44,6 +46,7 @@ import { addItem } from '../../action/action'
             className="form-control"
             onChange={this.onChange}
             value={this.state.text}
+            onSubmit={this.onAddItems}
           />
           <div className="input-group-append">
             <div>
@@ -52,7 +55,7 @@ import { addItem } from '../../action/action'
                 className="btn btn-outline-secondary"
                 onClick={this.onAddItems}
               >
-                {this.props.label}
+                Add ToDo Items
               </button>
             </div>
           </div>

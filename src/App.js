@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
-import AddInput from './components/SearchInput/AddInput';
-import SearchInput from './components/SearchInput/SearchInput';
-import List from './components/List';
-import { connect } from "react-redux";
+import AddInput from './components/Inputs/AddInput';
+import SearchAndList from './components/Inputs/SearchAndList'
 import './App.css';
 import './animate.css';
 
-class App extends Component {
-
+class App extends Component {  
   
-  
-    render() {
-        const { listItems } = this.props;
-
+    render() {        
         return (
           <div className="App">
             <div className="col-md-12 mb-4">
-                    <SearchInput label={"Clear the TODO List"} />
-                    <List todoItems={listItems} />
-                    <AddInput label={"Add ToDo Items"} />
+              <SearchAndList />
+              <AddInput />
             </div>
           </div>
         );
   }
 };
 
-const mapDispatchToProps = (state) => ({
-    listItems: state.listItems
-});
-
-export default connect(mapDispatchToProps)(App)
+export default App
