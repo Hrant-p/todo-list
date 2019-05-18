@@ -20,9 +20,3 @@ export const removeItem = id => dispatch => dispatch({
 export const clearItems = () => dispatch => dispatch({
                                                 type: CLEAR_ITEMS,
                                             });
-
-// export const searchItems = query => dispatch => dispatch({
-//                                                 type: SEARCH_ITEMS,
-//                                                 payload: query
-//                                             });
-

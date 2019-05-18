@@ -14,13 +14,11 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_ITEM:
                 return {
-                  listItems: [
-                    ...state.listItems,
+                  listItems: state.listItems.concat(
                     { label: action.payload,
                       id: state.listItems.length,
-                      marked: false }
-                  ] 
-                };
+                      marked: false })
+                    };
         case MARK_ITEM:      
             const index = state.listItems.findIndex(item => item.id === action.payload);
                 state.listItems[index].marked = !state.listItems[index].marked

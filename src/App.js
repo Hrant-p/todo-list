@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import AddInput from './components/Inputs/AddInput';
 import SearchAndList from './components/Inputs/SearchAndList'
-import './App.css';
-import './animate.css';
+import "./style/App.css";
+import './style/animate.css';
+import Footer from './components/Footer';
 
 class App extends Component {  
   
@@ -13,6 +14,7 @@ class App extends Component {
               <SearchAndList />
               <AddInput />
             </div>
+            <Footer />
           </div>
         );
   }
