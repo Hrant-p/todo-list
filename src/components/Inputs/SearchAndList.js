@@ -5,7 +5,6 @@ import { clearItems } from '../../action/action';
 import List from '../List';
 import { searchResult } from '../../helpers';
 
-
 class SearchAndList extends Component {
   constructor(props) {
     super(props);
@@ -63,10 +62,10 @@ class SearchAndList extends Component {
       </React.Fragment>
     );
   }
-};
+}
 
 const mapDispatchToProps = state => ({
     listItems: state.listItems
-})
+});
 
-export default connect(mapDispatchToProps, { clearItems })(SearchAndList);
+export default connect(mapDispatchToProps, { clearItems })(SearchAndList)

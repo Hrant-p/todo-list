@@ -3,7 +3,6 @@ import reducer from "./reducer/reducer";
 import { createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 
-
 const initialState = {
   listItems: [
     { label: "Do workout", id: 0, marked: false },
@@ -13,7 +12,6 @@ const initialState = {
     { label: "Learn JavaScript", id: 4, marked: false }
   ]
 };
-
 
 export const store = createStore(reducer,
      initialState,

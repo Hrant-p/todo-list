@@ -1,37 +1,36 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addItem } from '../../action/action'
-import { isEmpty } from '../../helpers';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addItem } from "../../action/action";
+import { isEmpty } from "../../helpers";
 
- class AddInput extends Component {
+class AddInput extends Component {
   constructor(props) {
-     super(props);
+    super(props);
 
-     this.state = {
-         text: ''
-     };
-     this.onAddItems = this.onAddItems.bind(this);
-     this.onChange = this.onChange.bind(this);
-   }
-
-   onAddItems() {
-     const { text } = this.state;
-    
-    if (!isEmpty(text)){
-        this.props.addItem(text);
-        this.setState({text: ''})
-    } else {
-        alert('There is no text')
+    this.state = {
+      text: ""
     };
-   };
+    this.onAddItems = this.onAddItems.bind(this);
+    this.onChange = this.onChange.bind(this);
+  }
 
-   onChange (e) {
-        this.setState({ text: e.target.value})
-   };
-  
-  
-    static propTypes = {
+  onAddItems() {
+    const { text } = this.state;
+
+    if (!isEmpty(text)) {
+      this.props.addItem(text);
+      this.setState({ text: "" });
+    } else {
+      alert("There is no text");
+    }
+  }
+
+  onChange(e) {
+    this.setState({ text: e.target.value });
+  }
+
+  static propTypes = {
     addItem: PropTypes.func.isRequired
   };
 
@@ -63,12 +62,10 @@ import { isEmpty } from '../../helpers';
       </div>
     );
   }
-};
+}
 
 const mapDispatchToProps = state => ({
-    listItems: state.listItems
-})
+  listItems: state.listItems
+});
 
 export default connect(mapDispatchToProps, { addItem })(AddInput);
-
-
