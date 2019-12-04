@@ -1,6 +1,6 @@
 import React from 'react';
-import AddInput from './components/Inputs/AddInput';
-import SearchAndList from './components/Inputs/SearchAndList'
+import AddInput from './container/AddInput';
+import SearchAndList from './container/SearchAndList'
 import "./style/App.css";
 import './style/animate.css';
 import Footer from './components/Footer';

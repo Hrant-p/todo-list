@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
                     return { listItems: [...state.listItems] };
         case REMOVE_ITEM:
                 const removeId = state.listItems.findIndex(item => item.id === action.payload);
-                state.listItems.splice(removeId, 1)
+                state.listItems.splice(removeId, 1);
                     return  { listItems: [...state.listItems]};
         case CLEAR_ITEMS:
                     return { listItems: []};

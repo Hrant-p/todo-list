@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { clearItems } from '../../action/action';
-import List from '../List';
-import { searchResult } from '../../helpers';
+import { clearItems } from '../action/action';
+import List from './List';
+import { searchResult } from '../helpers';
 
 class SearchAndList extends Component {
   constructor(props) {
@@ -29,11 +29,10 @@ class SearchAndList extends Component {
   render() {
       const { listItems } = this.props;
       const { query } = this.state;
-
-      const result = searchResult(listItems, query)
+      const result = searchResult(listItems, query);
 
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="animated bounceIn">
           <div className="input-group">
             <input
@@ -57,9 +56,8 @@ class SearchAndList extends Component {
             </div>
           </div>
         </div>
-
         <List todoItems={result} />
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

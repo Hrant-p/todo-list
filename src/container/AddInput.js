@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addItem } from "../../action/action";
-import { isEmpty } from "../../helpers";
+import { addItem } from "../action/action";
+import { isEmpty } from "../helpers";
 
 class AddInput extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       text: ""
     };
