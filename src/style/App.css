@@ -1,11 +1,11 @@
-body{
+body {
     display: flex;
     justify-content: center;
 }
 
-.row{
+.row {
     display: flex;
-    justify-content: centers;
+    justify-content: center;
 }
 
 .App {
@@ -17,7 +17,7 @@ body{
     flex-direction: column;
     margin-top: 50px;
 }
-.col-sm-8{
+.col-sm-8 {
     cursor: pointer;
     transition: 0.5s;
 }
@@ -26,6 +26,6 @@ body{
     box-shadow: 1px 1px 9px 1px;
 }
 
-.marked{
+.marked {
     text-decoration-line: line-through;
 }
