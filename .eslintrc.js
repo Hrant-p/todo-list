@@ -19,5 +19,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "arrow-parens": "off",
+        "react/jsx-filename-extension": [0]
     }
-};
+}

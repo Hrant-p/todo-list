@@ -12,23 +12,23 @@ const initialState = {
   ],
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
+const index = (state, payload) => state.listItems.findIndex(item => item.id === payload);
+
+const reducer = (state = initialState, { payload, type }) => {
+  switch (type) {
     case ADD_ITEM:
       return {
         listItems: state.listItems.concat({
-          label: action.payload,
+          label: payload,
           id: state.listItems.length,
           marked: false,
         }),
       };
     case MARK_ITEM:
-      const index = state.listItems.findIndex((item) => item.id === action.payload);
-      state.listItems[index].marked = !state.listItems[index].marked;
+      state.listItems[index(state, payload)].marked = !state.listItems[index(state, payload)].marked;
       return { listItems: [...state.listItems] };
     case REMOVE_ITEM:
-      const removeId = state.listItems.findIndex((item) => item.id === action.payload);
-      state.listItems.splice(removeId, 1);
+      state.listItems.splice(index(state, payload), 1);
       return { listItems: [...state.listItems] };
     case CLEAR_ITEMS:
       return { listItems: [] };
