@@ -1,5 +1,5 @@
 import React from 'react';
-import AddInput from './container/AddInput';
+import AddInput from './container/Input';
 import SearchAndList from './container/SearchAndList';
 import './style/App.css';
 import './style/animate.css';

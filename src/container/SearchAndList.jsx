@@ -62,8 +62,8 @@ class SearchAndList extends Component {
   }
 }
 
-const mapDispatchToProps = state => ({
+const mapStateToProps = state => ({
     listItems: state.listItems
 });
 
-export default connect(mapDispatchToProps, { clearItems })(SearchAndList)
+export default connect(mapStateToProps, { clearItems })(SearchAndList)

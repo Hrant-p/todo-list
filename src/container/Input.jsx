@@ -4,7 +4,15 @@ import { connect } from "react-redux";
 import { addItem } from "../action/action";
 import { isEmpty } from "../helpers";
 
-class AddInput extends Component {
+const todoArray = [
+  'Do workout',
+  'Go to the shop',
+  'Buy vegetarians',
+  'Drink water',
+  'Learn JavaScript'
+];
+
+class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,6 +20,10 @@ class AddInput extends Component {
     };
     this.onAddItems = this.onAddItems.bind(this);
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    todoArray.forEach(item => this.props.addItem(item));
   }
 
   onAddItems() {
@@ -67,4 +79,4 @@ const mapDispatchToProps = state => ({
   listItems: state.listItems
 });
 
-export default connect(mapDispatchToProps, { addItem })(AddInput);
+export default connect(mapDispatchToProps, { addItem })(Input);

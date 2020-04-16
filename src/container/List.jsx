@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import { connect } from 'react-redux';
 import '../style/App.css';
 import classnames from 'classnames';
@@ -55,13 +55,13 @@ class List extends Component {
 }
 
 List.propTypes = {
-  todoItems: PropTypes.array.isRequired,
+  todoItems: PropTypes.arrayOf(object).isRequired,
   markItem: PropTypes.func.isRequired,
   removeItem: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = state => ({
+const mapStateToProps = state => ({
   listItems: state.listItems,
 });
 
-export default connect(mapDispatchToProps, { markItem, removeItem })(List);
+export default connect(mapStateToProps, { markItem, removeItem })(List);
