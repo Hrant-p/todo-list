@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 import { clearItems } from '../action/action';
 import List from './List';
 import { searchResult } from '../helpers';
@@ -14,7 +15,7 @@ class SearchAndList extends Component {
   };
 
   static propTypes = {
-    listItems: PropTypes.array.isRequired,
+    listItems: PropTypes.arrayOf(object).isRequired,
     clearItems: PropTypes.func.isRequired
   };
 
@@ -27,7 +28,7 @@ class SearchAndList extends Component {
   };
 
   render() {
-      const { listItems } = this.props;
+      const { listItems, t } = this.props;
       const { query } = this.state;
       const result = searchResult(listItems, query);
 
@@ -39,7 +40,7 @@ class SearchAndList extends Component {
               type="text"
               name="query"
               className="form-control"
-              placeholder="Type to seach"
+              placeholder={t('search')}
               value={this.state.query}
               onChange={this.onChange}
             />
@@ -50,7 +51,7 @@ class SearchAndList extends Component {
                   className="btn btn-danger"
                   onClick={this.onDeleteItems}
                 >
-                  Clear the TODO List
+                  {t('clear')}
                 </button>
               </div>
             </div>
@@ -66,4 +67,4 @@ const mapStateToProps = state => ({
     listItems: state.listItems
 });
 
-export default connect(mapStateToProps, { clearItems })(SearchAndList)
+export default withTranslation()(connect(mapStateToProps, { clearItems })(SearchAndList))

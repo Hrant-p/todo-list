@@ -12,3 +12,11 @@ export function searchResult(listItems, query) {
   }
   return listItems;
 }
+
+export const setUserLanguage = lang => localStorage.setItem('LANGUAGE', lang);
+
+export const languages = {
+  en: 'en',
+  am: 'am',
+  ru: 'am'
+};

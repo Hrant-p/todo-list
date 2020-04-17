@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes, { object } from 'prop-types';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 import '../style/App.css';
 import classnames from 'classnames';
 import { isEmpty } from '../helpers';
@@ -22,7 +23,7 @@ class List extends Component {
   }
 
   render() {
-    const { todoItems } = this.props;
+    const { todoItems, t } = this.props;
     const items = todoItems.map(item => (
       <li className="list-group-item animated slideInDown" key={item.id}>
         <div className="d-flex justify-content-between">
@@ -47,7 +48,7 @@ class List extends Component {
 
     return (
       <ul className="list-group">
-        <li className="list-group-item active text-center">TODO LIST</li>
+        <li className="list-group-item active text-center">{t('title')}</li>
         {isEmpty(todoItems) ? null : items}
       </ul>
     );
@@ -64,4 +65,4 @@ const mapStateToProps = state => ({
   listItems: state.listItems,
 });
 
-export default connect(mapStateToProps, { markItem, removeItem })(List);
+export default withTranslation()(connect(mapStateToProps, { markItem, removeItem })(List));

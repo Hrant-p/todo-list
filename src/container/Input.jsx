@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { withTranslation } from 'react-i18next';
 import { addItem } from "../action/action";
 import { isEmpty } from "../helpers";
 
@@ -26,14 +27,16 @@ class Input extends Component {
     todoArray.forEach(item => this.props.addItem(item));
   }
 
-  onAddItems() {
+  onAddItems(e) {
+    e.preventDefault();
     const { text } = this.state;
+    const { addItem, t } = this.props;
 
     if (!isEmpty(text)) {
-      this.props.addItem(text);
+      addItem(text);
       this.setState({ text: "" });
     } else {
-      alert("There is no text");
+      alert(t('text_field_is_empty'));
     }
   }
 
@@ -46,13 +49,14 @@ class Input extends Component {
   };
 
   render() {
+    const {t} = this.props;
     return (
       <div>
         <div className="input-group mt-4 delay-1s">
           <input
             type="text"
             name="text"
-            placeholder="Type the ToDo info"
+            placeholder={t('type_todo_item')}
             className="form-control"
             onChange={this.onChange}
             value={this.state.text}
@@ -65,7 +69,7 @@ class Input extends Component {
                 className="btn btn-outline-secondary"
                 onClick={this.onAddItems}
               >
-                Add ToDo Items
+                {t('add_todo_item')}
               </button>
             </div>
           </div>
@@ -79,4 +83,4 @@ const mapDispatchToProps = state => ({
   listItems: state.listItems
 });
 
-export default connect(mapDispatchToProps, { addItem })(Input);
+export default withTranslation()(connect(mapDispatchToProps, { addItem })(Input));
