@@ -19,10 +19,10 @@ const LanguageButtons = () => {
           <button
             key={lng}
             type="button"
-            className={`${currentLng === lng ? 'btn btn-primary' : 'btn btn-info'}`}
+            className={`${currentLng === lng ? 'btn btn-success' : 'btn btn-outline-secondary'}`}
             onClick={() => changeLanguage(lng)}
           >
-            {lng}
+            {lng.toUpperCase()}
           </button>
         ))}
     </div>

@@ -37,7 +37,7 @@ class SearchAndList extends Component {
         <div className="animated bounceIn">
           <div className="input-group">
             <input
-              type="text"
+              type="search"
               name="query"
               className="form-control"
               placeholder={t('search')}

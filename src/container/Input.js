@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import PropTypes, {object} from "prop-types";
 import { connect } from "react-redux";
 import { withTranslation } from 'react-i18next';
 import { addItem } from "../action/action";
@@ -45,11 +45,13 @@ class Input extends Component {
   }
 
   static propTypes = {
-    addItem: PropTypes.func.isRequired
+    addItem: PropTypes.func.isRequired,
+    listItems: PropTypes.arrayOf(object).isRequired
   };
 
   render() {
-    const {t} = this.props;
+    const { t } = this.props;
+
     return (
       <div>
         <div className="input-group mt-4 delay-1s">
@@ -79,8 +81,11 @@ class Input extends Component {
   }
 }
 
-const mapDispatchToProps = state => ({
+const mapStateToProps = state => ({
   listItems: state.listItems
 });
 
-export default withTranslation()(connect(mapDispatchToProps, { addItem })(Input));
+export default withTranslation()(
+    connect(mapStateToProps,
+        { addItem }
+    )(Input));

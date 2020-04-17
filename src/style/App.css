@@ -19,11 +19,13 @@ body {
 }
 .col-sm-8 {
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .col-sm-8:hover {
-    box-shadow: 1px 1px 9px 1px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px #c1c1c1;
 }
 
 .marked {

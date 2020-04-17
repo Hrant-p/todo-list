@@ -9,7 +9,7 @@ const options = {
   interpolation: { escapeValue: false },
   lng: (localStorage.getItem('LANGUAGE')
       || navigator.language),
-  debug: true,
+  debug: false,
 
   resources: {
     am: {
